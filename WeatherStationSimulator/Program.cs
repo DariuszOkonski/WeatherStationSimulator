@@ -2,9 +2,6 @@
 {
     internal class Program
     {
-
-
-
         static void Main(string[] args)
         {
             Console.WriteLine("Enter the number of days to simulate: ");
@@ -16,7 +13,11 @@
 
             Random random = new Random();
 
-
+            for (int i = 0; i < days; i++)
+            {
+                temperature[i] = random.Next(-10, 40);
+                weatherConditions[i] = conditions[random.Next(conditions.Length)];
+            }
 
             Console.ReadKey();
         }
