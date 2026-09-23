@@ -19,7 +19,26 @@
                 weatherConditions[i] = conditions[random.Next(conditions.Length)];
             }
 
+
+            Console.WriteLine($"Average Temperature is: {CalculateAverage(temperature)}");
+
+
+
             Console.ReadKey();
+        }
+
+        static double CalculateAverage(int[] temperature)
+        {
+            double sum = 0;
+
+            for (int i = 0; i < temperature.Length; i++)
+            {
+                sum += temperature[i];
+            }
+
+            double average = sum / temperature.Length;
+
+            return average;
         }
     }
 }
