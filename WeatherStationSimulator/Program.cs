@@ -19,8 +19,9 @@
                 weatherConditions[i] = conditions[random.Next(conditions.Length)];
             }
 
-
-            Console.WriteLine($"Average Temperature is: {CalculateAverage(temperature)}");
+            Console.WriteLine($"Average Temperature is: {CalculateAverage(temperature).ToString("F")}");
+            Console.WriteLine($"The max temp was: {temperature.Max()}");
+            Console.WriteLine($"The min temp was: {MinTemperature(temperature)}");
 
 
 
@@ -39,6 +40,23 @@
             double average = sum / temperature.Length;
 
             return average;
+        }
+
+        static int MinTemperature(int[] temperature)
+        {
+            if (temperature.Length == 0) return 0;
+
+            int min = temperature[0];
+
+            foreach (var temp in temperature)
+            {
+                if (temp < min)
+                {
+                    min = temp;
+                }
+            }
+
+            return min;
         }
     }
 }
